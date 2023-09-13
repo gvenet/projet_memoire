@@ -1,0 +1,50 @@
+/* Styles spécifiques au composant CartComponent */
+
+/* Style pour la section du panier */
+.cart-container {
+    padding: 20px;
+    background-color: #f8f8f8;
+  }
+  
+  /* Style pour la liste des produits du panier */
+  .cart-product-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Style pour chaque élément de produit dans la liste du panier */
+  .cart-product-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+  
+  /* Style pour l'image du produit dans la liste */
+  .cart-product-image {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+  }
+  
+  /* Style pour le nom, le prix et le bouton de suppression */
+  .cart-product-details {
+    flex-grow: 1;
+  }
+  
+  /* Style pour le bouton de suppression */
+  .cart-remove-button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Style pour le bouton de suppression au survol */
+  .cart-remove-button:hover {
+    background-color: #d32f2f;
+  }
+  

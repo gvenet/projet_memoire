@@ -1,0 +1,14 @@
+{
+   "Servers": {
+      "1": {
+         "Name": "Produits",
+         "Group": "Servers",
+         "Port": 5432,
+         "Username": "gven",
+         "Host": "produits_db",
+         "SSLMode": "prefer",
+         "MaintenanceDB": "postgres",
+         "PassFile": "/var/lib/pgadmin/pgpass"
+      }
+   }
+}

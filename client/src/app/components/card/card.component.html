@@ -1,0 +1,14 @@
+<div class="card h-100">
+    <img class="card-img-top" [src]="product.image_url" alt="..." />
+    <div class="card-body p-4">
+        <div class="text-center">
+            <h5 class="fw-bolder">{{product.nom}}</h5>
+            <p>{{product.prix}}</p>
+        </div>
+    </div>
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+        <div class="text-center">
+            <a class="btn btn-outline-dark mt-auto" [routerLink]="['/product', product.id]" routerLinkActive="router-link-active" >Voir produit</a>
+        </div>
+    </div>
+</div>

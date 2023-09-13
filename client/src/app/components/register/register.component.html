@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">CLothes</h1>
+          <p class="lead fw-normal text-white-50 mb-0">The localhost shop</p>
+      </div>
+  </div>
+</header>
+<!-- register.component.html -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">Register</div>
+          <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
+              </div>
+              <button type="submit" class="btn btn-dark">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

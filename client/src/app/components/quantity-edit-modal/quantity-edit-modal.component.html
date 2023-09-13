@@ -1,0 +1,22 @@
+<!-- quantity-edit-modal.component.html -->
+
+<div class="modal-header">
+    <h4 class="modal-title">Edit quantity</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('cancel')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+  <div class="modal-body">
+    <form [formGroup]="quantityForm">
+      <div class="form-group">
+        <label for="newQuantity">New quantity :</label>
+        <input type="number" class="form-control" id="newQuantity" formControlName="newQuantity">
+      </div>
+    </form>
+  </div>
+  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="activeModal.dismiss('cancel')">Cancel</button>
+    <button type="button" class="btn btn-dark" (click)="save()" [disabled]="!quantityForm.valid">Save</button>
+  </div>
