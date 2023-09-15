@@ -29,4 +29,9 @@ export class ProductService {
     const headers = this.createAuthHeaders();
     return this.http.get<Product>(`${this.apiUrl}/${id}`, { headers });
   }
+
+  isValidate(id: number): Observable<any> {
+    const headers = this.createAuthHeaders();
+    return this.http.get<any>(`${this.apiUrl}/checkId/${id}`, { headers });
+  }
 }

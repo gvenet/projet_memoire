@@ -6,13 +6,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { DetailComponent } from './components/detail/detail.component';
 import { CartComponent } from './components/cart/cart.component';
 import { RegisterComponent } from './components/register/register.component';
-
-
-// Importez vos composants de page ici
+import { ProductGuard } from './guards/product.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'product/:id', component: DetailComponent, canActivate: [AuthGuard] },
+  { path: 'product/:id', component: DetailComponent, canActivate: [ProductGuard] },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
