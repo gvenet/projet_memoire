@@ -9,7 +9,7 @@ export class CartItemCountService {
   private cartItemCountSubject = new BehaviorSubject<number>(0);
 
   constructor(private cartService: CartService) {
-    this.updateCartItemCount(); // Chargez initialement la valeur
+    this.updateCartItemCount(); 
   }
 
   private updateCartItemCount(): void {

@@ -2,17 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  apiUrl: string = 'http://localhost:5001';
+  apiUrl: string = environment.apiUrl;
 
   constructor(
     private http: HttpClient,
-    private cookieService: CookieService) { }
+    private cookieService: CookieService) {
+    console.log('environment : ' + environment);
+    console.log('environment.production : ' + environment.production);
+    console.log('environment.production : ' + this.apiUrl);
+  }
+
+  private createAuthHeaders(): HttpHeaders {
+    const token = this.getToken();
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+
+  }
 
   login(username: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, { username }).pipe(
@@ -25,7 +39,7 @@ export class AuthService {
     );
   }
 
-  register(username: string): Observable<any> { 
+  register(username: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/register`, { username });
   }
 
@@ -37,10 +51,13 @@ export class AuthService {
     this.cookieService.delete('authToken');
   }
 
-
-
   getToken(): string {
     return this.cookieService.get('authToken');
+  }
+
+  isAdmin(): Observable<any> {
+    const headers = this.createAuthHeaders();
+    return this.http.get(`${this.apiUrl}/isAdmin`, { headers });
   }
 
 }

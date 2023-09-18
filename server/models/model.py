@@ -49,7 +49,9 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255))
+    admin = db.Column(db.Integer, default=0)
     carts = db.relationship('Cart', backref='user', lazy='dynamic')
 
-    def __init__(self, username):
+    def __init__(self, username, admin):
         self.username = username
+        self.admin = admin

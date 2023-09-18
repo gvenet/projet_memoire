@@ -1,4 +1,4 @@
-from models.model import db, Product
+from models.model import db, Cart, User, Product
 
 # Liste de produits à ajouter à la base de données
 products_data = [
@@ -50,10 +50,17 @@ def seed_products():
         )
         db.session.add(product)
 
-    db.session.commit()
+
+def seed_admin():
+    admin = User(username="admin",admin=1)
+    db.session.add(admin)
+    cart = Cart(1)
+    db.session.add(cart)
 
 if __name__ == "__main__":
     from app import create_app
     app = create_app()
     with app.app_context():
         seed_products()
+        seed_admin()
+        db.session.commit()

@@ -5,6 +5,7 @@ services:
       context: ./server
       dockerfile: Dockerfile.prod
     image: server:latest
+    container_name: server
     ports:
       - "5001:5001"
     depends_on:
@@ -20,6 +21,7 @@ services:
     build:
       context: ./client
     image: client:latest
+    container_name: client
     ports:
       - "80:80"
     networks:
@@ -29,7 +31,7 @@ services:
 
   produits_db: 
     image: postgres:14.1-alpine
-    container_name: produits_db-container
+    container_name: produits_db
     restart: always
     env_file:
       - .env
@@ -44,26 +46,26 @@ services:
     volumes:
       - produits_data:/var/lib/postgresql/data
 
-  # pgadmin:
-  #   container_name: pgadmin
-  #   image: dpage/pgadmin4
-  #   restart: always
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-  #     PGADMIN_CONFIG_SERVER_MODE: "False"
-  #     PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
-  #   ports:
-  #     - "5050:80"
-  #   networks:
-  #     - vpcbr
-  #   volumes:
-  #     - ./conf/servers.json:/pgadmin4/servers.json
-  #     - ./conf/pgpass:/pgadmin4/pgpass
-  #   depends_on:
-  #     - "produits_db"
-  #   entrypoint: >
-  #     /bin/sh -c " cp -f /pgadmin4/pgpass /var/lib/pgadmin/; chmod 600 /var/lib/pgadmin/pgpass; /entrypoint.sh "
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    ports:
+      - "5050:80"
+    networks:
+      - vpcbr
+    volumes:
+      - ./conf/servers.json:/pgadmin4/servers.json
+      - ./conf/pgpass:/pgadmin4/pgpass
+    depends_on:
+      - "produits_db"
+    entrypoint: >
+      /bin/sh -c " cp -f /pgadmin4/pgpass /var/lib/pgadmin/; chmod 600 /var/lib/pgadmin/pgpass; /entrypoint.sh "
 
 networks:
   vpcbr:
