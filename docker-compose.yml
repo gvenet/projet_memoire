@@ -3,7 +3,6 @@ services:
   server:
     build:
       context: ./server
-      dockerfile: Dockerfile.prod
     image: server:latest
     container_name: server
     ports:
@@ -28,6 +27,8 @@ services:
       - vpcbr
     depends_on:
       - "server"
+    command:
+      ["sh","-c","nginx -g 'daemon off;'"]
 
   produits_db: 
     image: postgres:14.1-alpine
