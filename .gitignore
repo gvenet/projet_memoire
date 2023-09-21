@@ -1,2 +1,4 @@
 /server/migrations
 /server/__pycache__
+/server/services/__pycache__
+/server/models/__pycache__
