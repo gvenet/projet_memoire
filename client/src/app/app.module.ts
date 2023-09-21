@@ -17,7 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { QuantityEditModalComponent } from './components/quantity-edit-modal/quantity-edit-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ProductManagerComponent } from './product-manager/product-manager.component';
+import { ProductManagerComponent } from './components/product-manager/product-manager.component';
 
 @NgModule({
   declarations: [

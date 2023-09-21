@@ -7,7 +7,7 @@ import { DetailComponent } from './components/detail/detail.component';
 import { CartComponent } from './components/cart/cart.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProductGuard } from './guards/product.guard';
-import { ProductManagerComponent } from './product-manager/product-manager.component';
+import { ProductManagerComponent } from './components/product-manager/product-manager.component';
 import { ManagerGuard } from './guards/manager.guard';
 
 const routes: Routes = [
