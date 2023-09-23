@@ -20,10 +20,10 @@ class TestProductService(TestCase):
             'prix': 10.99,
             'description': 'Description du produit 1',
             'image_url': 'image1.jpg'}
-        u = User(username='admin', admin=1)
-        p = Product(self.p['nom'], self.p['prix'],
+        user_test = User(username='admin', admin=1)
+        product_test = Product(self.p['nom'], self.p['prix'],
                     self.p['description'], self.p['image_url'])
-        db.session.add_all([u,p])
+        db.session.add_all([user_test,product_test])
 
     def tearDown(self):
         db.session.remove()

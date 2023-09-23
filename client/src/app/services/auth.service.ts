@@ -30,7 +30,7 @@ export class AuthService {
 
   login(username: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, { username }).pipe(
-      map((response: { token: string; userId: number; }) => {
+      map((response: { token: string; }) => {
         if (response && response.token) {
           this.cookieService.set('authToken', response.token, 30);
         }
