@@ -1,4 +1,4 @@
-FROM node:latest as build
+FROM node:21.2.0-alpine3.17 as build
 WORKDIR /app
 COPY ./package*.json ./
 RUN npm install
